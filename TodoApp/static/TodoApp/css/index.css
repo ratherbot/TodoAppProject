@@ -1,0 +1,16 @@
+.container {
+    width: 100%; /* Ширина контейнера */
+    display: flex; /* Используем flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 150px; /* Высота контейнера */
+}
+
+.add-article {
+    background-color: green; /* Цвет фона для прямоугольника */
+    padding: 20px 40px;
+    border-radius: 25px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
