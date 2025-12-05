@@ -1,0 +1,23 @@
+body {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.auth-block {
+}
+
+.auth-block ul {
+    display: flex;
+    flex-direction: row;
+}

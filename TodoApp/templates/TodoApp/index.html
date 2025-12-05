@@ -1,16 +1,2 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>SimpleApp</title>
-</head>
-<body>
-    <h1>Добро пожаловать в SimpleApp!</h1>
-
-    <p>Это пример использования статического файла (картинки) в шаблоне.</p>
-
-    <img src="{% static 'TodoApp/images/logo.png' %}" alt="Логотип"
-         style="max-width: 300px; border: 1px solid #ccc;">
-</body>
-</html>
+{% extends 'TodoApp/base.html' %}
+{% block title %}Главная страница{% endblock %}

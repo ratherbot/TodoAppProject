@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'TodoApp/css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://ya.ru">Контакты</a>
+                </li>
+                <li>
+                    <a href="https://ya.ru">О нас</a>
+                </li>
+            </ul>
+        </nav>
+        <div class = "auth-block">
+            <ul>
+                <li>
+                    <a href = "">Регистрация</a>
+                </li>
+                <li>
+                    <a href = "">Войти</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+</body>
+</html>
