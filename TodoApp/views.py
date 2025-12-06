@@ -7,7 +7,12 @@ from TodoApp.models import Task
 
 # Create your views here.
 def index(request):
-    return render(request, 'TodoApp/index.html')
+    tasks = Task.objects.all()
+    return render(request, 'TodoApp/index.html', {'tasks': tasks})
+
+
+def about(request):
+    return render(request, 'TodoApp/about.html')
 
 class TaskHome(ListView):
     model = Task

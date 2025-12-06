@@ -52,10 +52,3 @@ header nav ul {
     margin: 20px;
     gap: 20px;
 }
-
-.auth-block ul {
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
-    gap: 20px;
-}

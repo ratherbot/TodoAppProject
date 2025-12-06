@@ -3,7 +3,22 @@
 {% block title %}Главная страница{% endblock %}
 {% block head %}<link rel="stylesheet" href="{% static 'TodoApp/css/index.css' %}">{% endblock %}
 {% block content %}
-    <div class="container">
-        <a href="#" class="add-article">Добавить задачу</a>
-    </div>
+    <section>
+        <div class="container">
+            <a href="#" class="add-article">Добавить задачу</a>
+        </div>
+    </section>
+    <section class="main-section">
+        {% for task in tasks %}
+            <a href="#" class="task-item
+            {% if task.priority == 1 %} task-high
+            {% elif task.priority == 2 %} task-medium
+            {% else %} task-low
+            {% endif %}">
+                <h2>{{ task.title }}</h2>
+                <p>{{ task.description }}</p>
+                <p>Дедлайн: {{ task.deadline }}</p>
+            </a>
+        {% endfor %}
+    </section>
 {% endblock %}
