@@ -31,6 +31,7 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         related_name='tasks',
     )
+    is_done = models.BooleanField(default=False, verbose_name="Решена")
 
     def __str__(self):
         return self.title

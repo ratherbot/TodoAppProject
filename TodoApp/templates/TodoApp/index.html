@@ -4,11 +4,24 @@
 {% block head %}<link rel="stylesheet" href="{% static 'TodoApp/css/index.css' %}">{% endblock %}
 {% block content %}
     <section>
-        <div class="container">
-            <a href="#" class="add-article">Добавить задачу</a>
+        <div class="container big-green-button green-button">
+            <a href="{% url 'add_task' %}">Добавить задачу</a>
         </div>
     </section>
     <section class="main-section">
+        {% if not user.is_authenticated %}
+            <div class="warning-block">
+                <p class="warning-text">Вы не авторизовались. Чтобы вы могли создавать задачи, вам необходимо авторизоваться.
+                    Для этого зарегистрируйтесь на сайте, либо войдите</p>
+            </div>
+        {% else %}
+        <div class="filter-section green-button">
+            <a href="?status=all" class="filter-btn">Все</a>
+            <a href="?status=done" class="filter-btn">Решённые</a>
+            <a href="?status=not_done" class="filter-btn">Нерешённые</a>
+            <a href="?status=overdue" class="filter-btn">Просроченные</a>
+        </div>
+
         {% for task in tasks %}
             <a href="#" class="task-item
             {% if task.priority == 1 %} task-high
@@ -18,7 +31,9 @@
                 <h2>{{ task.title }}</h2>
                 <p>{{ task.description }}</p>
                 <p>Дедлайн: {{ task.deadline }}</p>
+                <p>Готовность: {{ task.is_done }}</p>
             </a>
         {% endfor %}
+        {% endif %}
     </section>
 {% endblock %}

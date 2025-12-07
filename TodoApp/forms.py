@@ -5,10 +5,7 @@ from django.contrib.auth.models import User
 from TodoApp.models import Task
 
 
-class AddTaskForm(forms.Form):
-    def __init__(self, *args, **kwargs):
-        super(self).__init__(*args, **kwargs)
-
+class AddTaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ('title', 'description', 'priority', 'deadline')

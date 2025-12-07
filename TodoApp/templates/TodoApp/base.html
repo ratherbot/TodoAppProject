@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'TodoApp/css/base.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'TodoApp/images/logo.ico' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -14,24 +15,31 @@
     <header>
         <nav>
             <ul class="list">
-                <li>
-                    <a href="#">Контакты</a>
-                </li>
-                <li>
-                    <a href="{% url 'about' %}">О нас</a>
-                </li>
+                <li><a href="{% url 'home' %}">Главная страница</a></li>
+                <li><a href="{% url 'about' %}">О сайте</a></li>
             </ul>
             <ul class="list">
-                <li>
-                    <a href ="#">Регистрация</a>
-                </li>
-                <li>
-                    <a href="#">Войти</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Выйти</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Регистрация</a></li>
+                    <li><a href="{% url 'login' %}">Войти</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
     {% block content %}
     {% endblock %}
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>Все права защищены.</p>
+                <p><a href="#">Политика конфиденциальности</a> | <a href="#">Пользовательское соглашение</a></p>
+            </div>
+            <div class="footer-right">
+                <p>Контакты: <a href="mailto:info@todoapp.com">just51290@mail.ru</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
