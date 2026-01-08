@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Добавляем для адаптивности -->
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'TodoApp/css/base.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'TodoApp/images/logo.ico' %}">
@@ -20,6 +21,7 @@
             </ul>
             <ul class="list">
                 {% if user.is_authenticated %}
+                    <li><a>{{ user.username }}</a></li>
                     <li><a href="{% url 'logout' %}">Выйти</a></li>
                 {% else %}
                     <li><a href="{% url 'register' %}">Регистрация</a></li>

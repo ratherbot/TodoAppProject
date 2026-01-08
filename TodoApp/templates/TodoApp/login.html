@@ -1,19 +1,28 @@
 {% extends 'TodoApp/base.html' %}
+{% load static %}
 {% block title %}Вход{% endblock %}
+{% block head %}<link rel="stylesheet" href="{% static 'TodoApp/css/login.css' %}">{% endblock %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
+    <div class="form-container">
+        <h1 class="form-title">Вход</h1>
 
-<div class="form-error">{{ form.non_field_errors }}</div>
+        <form method="post">
+            {% csrf_token %}
 
-{% for f in form %}
-<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-<div class="form-error">{{ f.errors }}</div>
-{% endfor %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
 
-    <button type="submit">Войти</button>
-    <button>
-    <a href="{% url 'register' %}">Зарегистрироваться</a>
-    </button>
-</form>
+            {% for f in form %}
+                <div class="form-group">
+                    <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                    {{ f }}
+                    <div class="form-error">{{ f.errors }}</div>
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="submit-btn">Войти</button>
+            <div class="register-link">
+                <p>Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+            </div>
+        </form>
+    </div>
 {% endblock %}

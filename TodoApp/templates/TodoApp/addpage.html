@@ -1,5 +1,7 @@
 {% extends 'TodoApp/base.html' %}
 {% block title %}Добавление задачи{% endblock %}
+{% load static %}
+{% block head %}<link rel="stylesheet" href="{% static 'TodoApp/css/addpage.css' %}">{% endblock %}
 {% block content %}
     <form action="{% url 'add_task' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -9,6 +11,6 @@
     <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
     <div class="form-error">{{ f.errors }}</div>
 {% endfor %}
-    <button type="submit">Добавить</button>
+    <button type="submit" class="submit-btn">Добавить</button>
     </form>
 {% endblock %}
