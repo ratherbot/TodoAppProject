@@ -4,7 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 
 from TodoApp.forms import *
 from TodoApp.models import Task

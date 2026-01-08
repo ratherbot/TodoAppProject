@@ -18,19 +18,23 @@ class Task(models.Model):
 
     title = models.CharField(max_length=255, verbose_name="Название")
     description = models.TextField(blank=True, verbose_name="Описание")
+
     priority = models.IntegerField(
         choices=PRIORITY_CHOICES,
         default=MEDIUM,
         verbose_name='Приоритет'
     )
+
     deadline = models.DateTimeField(null=True, blank=True, verbose_name="Дедлайн")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Время изменения")
+
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='tasks',
     )
+
     is_done = models.BooleanField(default=False, verbose_name="Решена")
 
     def __str__(self):
