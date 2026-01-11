@@ -96,3 +96,80 @@
     padding: 0;
     line-height: 1.8;
 }
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.task-actions button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.task-actions button:first-of-type {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.task-actions button:first-of-type:hover {
+    background-color: #45a049;
+}
+
+.task-actions button:last-of-type {
+    background-color: #f44336;
+    color: white;
+}
+
+.task-actions button:last-of-type:hover {
+    background-color: #e53935;
+}
+
+.task-actions .btn-details {
+    padding: 8px 15px;
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.task-actions .btn-details:hover {
+    background-color: #1976D2;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .step-links {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.pagination .step-links a {
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    color: #333;
+}
+
+.pagination .step-links a:hover {
+    background-color: #ddd;
+}
+
+.pagination .current {
+    font-weight: bold;
+}

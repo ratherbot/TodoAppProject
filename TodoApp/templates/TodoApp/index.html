@@ -23,17 +23,54 @@
         </div>
 
         {% for task in tasks %}
-            <a href="#" class="task-item
+            <div href="#" class="task-item
             {% if task.priority == 1 %} task-high
             {% elif task.priority == 2 %} task-medium
             {% else %} task-low
             {% endif %}">
                 <h2>{{ task.title }}</h2>
-                <p>{{ task.description }}</p>
+                <p>{{ task.description|truncatechars:100 }}</p>
                 <p>Дедлайн: {{ task.deadline }}</p>
                 <p>Готовность: {{ task.is_done }}</p>
-            </a>
+                <div class="task-actions">
+                    <form method="post" action="{% url 'task_toggle' task.slug %}">
+                        {% csrf_token %}
+                        <button type="submit">
+                            {% if task.is_done %}↩ Не готово{% else %}✔ Готово{% endif %}
+                        </button>
+                    </form>
+
+                    <a href="{{ task.get_absolute_url }}" class="btn-details">
+                        📄 Подробнее
+                    </a>
+
+                    <form method="post" action="{% url 'task_delete' task.slug %}">
+                        {% csrf_token %}
+                        <button type="submit">✖ Удалить</button>
+                    </form>
+                </div>
+            </div>
         {% endfor %}
         {% endif %}
+        {% if is_paginated %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&status={{ request.GET.status|default:'all' }}">&laquo; Первая</a>
+                <a href="?page={{ page_obj.previous_page_number }}&status={{ request.GET.status|default:'all' }}">Предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&status={{ request.GET.status|default:'all' }}">Следующая</a>
+                <a href="?page={{ paginator.num_pages }}&status={{ request.GET.status|default:'all' }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}
+
     </section>
 {% endblock %}

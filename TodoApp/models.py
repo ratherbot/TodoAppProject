@@ -2,9 +2,11 @@ from django.db import models
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.text import slugify
 
-# Create your models here.
+
 class Task(models.Model):
     HIGH = 1
     MEDIUM = 2
@@ -16,7 +18,9 @@ class Task(models.Model):
         (LOW, 'Low'),
     ]
 
+    id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=255, verbose_name="Название")
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     description = models.TextField(blank=True, verbose_name="Описание")
 
     priority = models.IntegerField(
@@ -40,8 +44,25 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('task', kwargs={'task_slug': self.slug})
+
     def is_overdue(self):
         return self.deadline and self.deadline < timezone.now()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+
+            unique_slug = self.slug
+            counter = 1
+
+            while Task.objects.filter(slug=unique_slug).exists():
+                unique_slug = f"{self.slug}-{counter}"
+                counter += 1
+            self.slug = unique_slug
+
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ('priority', 'deadline')

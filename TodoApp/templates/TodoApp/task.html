@@ -1,2 +1,22 @@
 {% extends 'TodoApp/base.html' %}
-{% block title %}{% endblock %}
+{% load static %}
+{% block title %}{{ task.slug }}{% endblock %}
+{% block head %}<link rel="stylesheet" href="{% static 'TodoApp/css/task.css' %}">{% endblock %}
+{% block content %}
+    <section class="task-detail">
+        <h1 class="task-title">{{ task.slug }}</h1>
+
+        <p><strong>Описание:</strong></p>
+        <p class="task-description">{{ task.description }}</p>
+
+        <p><strong>Приоритет:</strong> <span class="task-priority">{{ task.get_priority_display }}</span></p>
+
+        <p><strong>Дедлайн:</strong> <span class="task-deadline">{{ task.deadline }}</span></p>
+
+        <p><strong>Статус:</strong>
+            <span class="task-status {% if task.is_done %}done{% else %}not-done{% endif %}">
+                {% if task.is_done %}Готово{% else %}Не готово{% endif %}
+            </span>
+        </p>
+    </section>
+{% endblock %}
