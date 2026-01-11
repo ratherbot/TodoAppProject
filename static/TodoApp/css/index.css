@@ -1,0 +1,175 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: palegreen;
+}
+
+.big-green-button a {
+    background-color: green;
+    padding: 20px 40px;
+    border-radius: 25px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.big-green-button a:hover {
+    background-color: darkgreen;
+}
+
+.green-button a:hover {
+    color: darkturquoise;
+}
+
+.green-button a:focus {
+    color: lightpink;
+}
+
+.green-button a:active {
+    color: aquamarine;
+}
+
+.main-section {
+    background-color: dodgerblue;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.task-item {
+    display: block;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    width: 900px;
+    margin-bottom: 20px;
+}
+
+.task-high {
+    background-color: crimson;
+}
+
+.task-medium {
+    background-color: orange;
+}
+
+.task-low {
+    background-color: rgba(7,255,5,0.8);
+}
+
+.filter-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.filter-btn:hover {
+    background-color: darkgreen;
+}
+
+.warning-block {
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: #3BDA00;
+    border-style: solid;
+}
+
+.warning-text {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.task-actions button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.task-actions button:first-of-type {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.task-actions button:first-of-type:hover {
+    background-color: #45a049;
+}
+
+.task-actions button:last-of-type {
+    background-color: #f44336;
+    color: white;
+}
+
+.task-actions button:last-of-type:hover {
+    background-color: #e53935;
+}
+
+.task-actions .btn-details {
+    padding: 8px 15px;
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.task-actions .btn-details:hover {
+    background-color: #1976D2;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .step-links {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.pagination .step-links a {
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    color: #333;
+}
+
+.pagination .step-links a:hover {
+    background-color: #ddd;
+}
+
+.pagination .current {
+    font-weight: bold;
+}

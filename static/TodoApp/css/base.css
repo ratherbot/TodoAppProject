@@ -1,0 +1,113 @@
+/* Сброс стилей для списка */
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Стили для body */
+body {
+    font-family: Roboto;
+    padding: 0;
+    margin: 0 auto;
+    width: 1366px;
+}
+
+/* Основные стили для header */
+header {
+    display: flex;
+    justify-content: space-between;  /* Расставляем элементы по краям */
+    background: #3BDA00;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для nav */
+header nav {
+    display: flex;
+    width: 100%;  /* Задаём полную ширину для навигации */
+    justify-content: space-between;  /* Это выровняет два списка по разным сторонам */
+}
+
+/* Стили для ссылок */
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Эффекты при наведении, фокусе и активном состоянии */
+header nav a:hover {
+    color: blue;
+}
+
+header nav a:focus {
+    color: darkmagenta;
+}
+
+header nav a:active {
+    color: aquamarine;
+}
+
+/* Стили для правого списка */
+header nav ul.list {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Основной стиль для подвала */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+}
+
+.footer-left p, .footer-right p {
+    margin: 0;
+}
+
+/* Стили для ссылок в подвале */
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для соцсетей */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links li {
+    margin: 0 15px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.social-links a:hover {
+    color: #00aaff;
+}

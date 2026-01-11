@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0-d1!0oxfudd6-@-wz+*nslsu3krs@m28p&^ckup7oibnl4#t#'
 
 
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -125,7 +125,7 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = '/login/'
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://storage.yandexcloud.net/todoapp-bucket/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = []
 
